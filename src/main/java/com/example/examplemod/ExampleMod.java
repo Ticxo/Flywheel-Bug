@@ -48,6 +48,8 @@ public class ExampleMod {
 
 	@OnlyIn(Dist.CLIENT)
 	public void onRenderInitialize(EntityRenderersEvent.RegisterRenderers event) {
+		event.registerBlockEntityRenderer(TEST_BLOCK_ENTITY.get(), EmptyBlockEntityRenderer.PROVIDER);
+
 		InstancedRenderRegistry.configure(TEST_BLOCK_ENTITY.get())
 				.alwaysSkipRender()
 				.factory(TestBlockInstance::new)
